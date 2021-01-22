@@ -13,15 +13,15 @@ public class Task3 {
             System.out.println("Некорректный ввод");
         }
 
-        while (a < b) {
-            int counter = a;
-            counter++;
+        int counter = a + 1;
+
+        while (counter < b) {
 
             if (counter % 5 == 0 && counter % 10 != 0) {
                 System.out.print(counter + " ");
             }
 
-            a++;
+            counter++;
         }
 
 
