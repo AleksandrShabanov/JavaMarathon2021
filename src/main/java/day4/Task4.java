@@ -9,11 +9,15 @@ public class Task4 {
         int index = 0;
         int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < num.length; i++) {
+        for (int i = 0; i < num.length; i++)
             num[i] = random.nextInt(10000);
-        }
+
+
         for (int j = 0; j < num.length - 2; j++) {
-            int currentSum = num[j] + num[j + 1] + num[j + 2];
+            int currentSum = 0;
+            for (int k = j; k < j + 3; k++){
+                currentSum += num[k];
+                }
             if (currentSum > max) {
                 max = currentSum;
                 index = j;

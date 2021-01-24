@@ -16,12 +16,12 @@ public class Task2 {
         }
 
         for (int j : array) {
-            if (j > max) {
+            if (j > max)
                 max = j;
-            }
-            if (j < min) {
+
+            if (j < min)
                 min = j;
-            }
+
             if (j % 10 == 0) {
                 zero++;
                 sum = sum + j;

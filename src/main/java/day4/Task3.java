@@ -29,22 +29,22 @@ public class Task3 {
         for (int i = 0; i < array.length; i++){
             for (int j = 0; j < array[i].length; j++){
                 array[i][j] = random.nextInt(50);
-                System.out.print(array[i][j] + " ");
 
                 arraysSum[i] += array[i][j];
+                System.out.println("Массив: " + Arrays.toString(arraysSum));
+
                 for (int k : arraysSum){
-                    if (k > max){
+                    if (k >= max){
                         max = k;
                         index = i;
                     }
                 }
+                System.out.println("Сумма строки массива:  " + max);
+                System.out.println("Индекс строки, сумма чисел в которой максимальна: " + index);
             }
 
             System.out.println();
         }
-        System.out.println();
-        System.out.println("Сумма каждой строки массива: " + Arrays.toString(arraysSum));
-        System.out.println("Индекс строки, сумма чисел в которой максимальна: " + index);
 
 
 
