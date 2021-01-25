@@ -43,8 +43,8 @@ public class Airplane {
                 ", длина: " + length + ", вес: " + weight + ", количество топлива в баке: " + fuel);
     }
 
-    void fillUp(int fuel){
-        this.fuel = fuel;
+    void fillUp(int n){
+        this.fuel += n;
     }
 
     public void setProducer(String producer) {
@@ -67,7 +67,7 @@ public class Airplane {
         this.fuel = fuel;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getFuel() {
+        return fuel;
     }
 }
