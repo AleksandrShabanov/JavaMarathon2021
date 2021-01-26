@@ -20,8 +20,6 @@ import java.util.Random;
 
 public class Teacher {
 
-    Random random = new Random();
-
     private String name;
     private String object;
 
@@ -33,6 +31,8 @@ public class Teacher {
     }
 
     void evaluate (Student student){
+        Random random = new Random();
+
         int grade = 2 + random.nextInt(4);
         String gradeResult = "";
 

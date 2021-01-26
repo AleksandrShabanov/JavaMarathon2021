@@ -67,7 +67,7 @@ public class Airplane {
         this.fuel = fuel;
     }
 
-    public double getFuel() {
+    public int getFuel() {
         return fuel;
     }
 }
