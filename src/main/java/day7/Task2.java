@@ -30,5 +30,6 @@ public class Task2 {
         System.out.println(player1.getStamina());
         System.out.println(Player.getCountPlayers());
 
+
     }
 }
