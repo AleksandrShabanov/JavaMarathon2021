@@ -10,9 +10,10 @@ public class Task1 {
 
         long start = System.currentTimeMillis();
         for (int i = 0; i <= 20000; i++){
-            string = i + " ";
-            System.out.print(string);
+            string = string.concat(i + " ");
         }
+        System.out.print(string);
+
         long finish = System.currentTimeMillis();
         long result = finish - start;
 
