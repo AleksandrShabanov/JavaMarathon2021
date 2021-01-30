@@ -14,19 +14,19 @@ public class Courier implements Worker {
     @Override
     public void doWork() {
         salary += 100;
-        warehouse.countDeliveredOrders++;
+        warehouse.plusDeliveredOrders();
     }
 
     @Override
     public void bonus() {
 
-        if (warehouse.countDeliveredOrders < 10_000)
+        if (warehouse.getCountDeliveredOrders() < 10_000)
             System.out.println("Бонус пока не доступен");
 
-        if (warehouse.countDeliveredOrders > 10_000)
+        if (warehouse.getCountDeliveredOrders() > 10_000)
             System.out.println("Бонус уже был выплачен");
 
-        if (warehouse.countDeliveredOrders == 10_000) {
+        if (warehouse.getCountDeliveredOrders() == 10_000) {
             salary += 50_000;
             isPayed = true;
         }

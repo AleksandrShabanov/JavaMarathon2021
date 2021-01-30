@@ -14,8 +14,8 @@ public class Task1 {
         courier2.doWork();
         picker2.doWork();
 
-        System.out.println("Количество собранных заказов: " + picker.warehouse.countPickedOrders + " ЗП сборщика: " + picker.getSalary());
-        System.out.println("Количество доставвленных заказов: " + courier.warehouse.countDeliveredOrders + " ЗП курьера: " + courier.getSalary());
+        System.out.println("Количество собранных заказов: " + picker.warehouse.getCountPickedOrders() + " ЗП сборщика: " + picker.getSalary());
+        System.out.println("Количество доставвленных заказов: " + courier.warehouse.getCountDeliveredOrders() + " ЗП курьера: " + courier.getSalary());
     }
 
     public static void businessProcess(Worker worker){
