@@ -4,7 +4,7 @@ public class Picker implements Worker {
 
     private double salary;
     private boolean isPayed;
-    Warehouse warehouse;
+    private Warehouse warehouse;
 
     public Picker(Warehouse warehouse) {
         this.warehouse = warehouse;
@@ -19,16 +19,18 @@ public class Picker implements Worker {
     @Override
     public void bonus() {
 
-        if (warehouse.getCountPickedOrders() < 10_000)
+        if (warehouse.getCountPickedOrders() < 10_000) {
             System.out.println("Бонус пока не доступен");
-
-        if (warehouse.getCountPickedOrders() > 10_000)
-            System.out.println("Бонус уже был выплачен");
-
-        if (warehouse.getCountPickedOrders() == 10_000) {
-            salary += 70_000;
-            isPayed = true;
+            return;
         }
+
+        if (isPayed) {
+            System.out.println("Бонус уже был выплачен");
+            return;
+        }
+
+        salary += 70_000;
+        isPayed = true;
     }
 
     public double getSalary() {
@@ -40,7 +42,6 @@ public class Picker implements Worker {
     }
 
     public String toString() {
-
-        return null;
+        return "Количество собранных заказов: " + warehouse.getCountPickedOrders() + " ЗП сборщика: " + getSalary();
     }
 }

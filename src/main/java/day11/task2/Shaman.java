@@ -6,9 +6,10 @@ import day11.task2.interfaces.PhysAttack;
 
 public class Shaman extends Hero implements Healer, MagicAttack, PhysAttack {
 
-    public Shaman(){
+    public int magicAtt;
 
-        health = 100;
+
+    public Shaman() {
         physDef = 20;
         magicDef = 20;
         physAtt = 10;
@@ -18,40 +19,35 @@ public class Shaman extends Hero implements Healer, MagicAttack, PhysAttack {
 
     @Override
     public void healHimself() {
-        health += 50;
+        if (health + 50 > 100) {
+            health = 100;
+        } else {
+            health += 50;
+        }
     }
 
     @Override
     public void healTeammate(Hero hero) {
-        hero.health += 30;
-
-        if (hero.health > 100)
+        if (hero.health + 30 > 100) {
             hero.health = 100;
+        } else {
+            hero.health += 30;
+        }
     }
 
     @Override
     public void magicalAttack(Hero hero) {
-        if (hero.health > 100)
-            hero.health = 100;
-
-        hero.health -= magicAtt - (magicAtt * hero.magicDef/100);
-
-        if (hero.health < 0)
-            hero.health = 0;
+        double attackScore = magicAtt - (magicAtt * hero.magicDef/100);
+        if (hero.health - attackScore < MIN_HEALTH){
+            hero.health = MIN_HEALTH;
+        }
+        else {
+            hero.health -= attackScore;
+        }
     }
 
-    @Override
-    public void physicalAttack(Hero hero) {
-        if (hero.health > 100)
-            hero.health = 100;
 
-        hero.health -= physAtt - (physAtt * hero.physDef/100);
-
-        if (hero.health < 0)
-            hero.health = 0;
-    }
-
-    public String toString(){
+    public String toString() {
         return "Shaman {health=" + health + "}";
     }
 }

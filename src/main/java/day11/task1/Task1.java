@@ -14,15 +14,14 @@ public class Task1 {
         courier2.doWork();
         picker2.doWork();
 
-        System.out.println("Количество собранных заказов: " + picker.warehouse.getCountPickedOrders() + " ЗП сборщика: " + picker.getSalary());
-        System.out.println("Количество доставвленных заказов: " + courier.warehouse.getCountDeliveredOrders() + " ЗП курьера: " + courier.getSalary());
+        System.out.println(picker.toString());
+        System.out.println(courier.toString());
     }
 
     public static void businessProcess(Worker worker){
         for (int i = 0; i < 10_000; i++){
             worker.doWork();
-            if (i == 9999)
-                worker.bonus();
         }
+        worker.bonus();
     }
 }

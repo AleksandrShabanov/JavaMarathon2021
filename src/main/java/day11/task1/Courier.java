@@ -4,7 +4,7 @@ public class Courier implements Worker {
 
     private double salary;
     private boolean isPayed;
-    Warehouse warehouse = new Warehouse();
+    private Warehouse warehouse;
 
     public Courier(Warehouse warehouse) {
         this.warehouse = warehouse;
@@ -41,6 +41,6 @@ public class Courier implements Worker {
     }
 
     public String toString() {
-        return null;
+        return "Количество доставленных заказов: " + warehouse.getCountDeliveredOrders() + " ЗП курьера: " + getSalary();
     }
 }

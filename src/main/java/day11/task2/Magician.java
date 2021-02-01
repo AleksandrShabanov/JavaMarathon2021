@@ -5,8 +5,10 @@ import day11.task2.interfaces.PhysAttack;
 
 public class Magician extends Hero implements PhysAttack, MagicAttack {
 
-    public Magician(){
-        health = 100;
+    public int magicAtt;
+
+
+    public Magician() {
         physDef = 0;
         magicDef = 80;
         physAtt = 5;
@@ -15,27 +17,16 @@ public class Magician extends Hero implements PhysAttack, MagicAttack {
 
     @Override
     public void magicalAttack(Hero hero) {
-        if (hero.health > 100)
-            hero.health = 100;
-
-        hero.health -= magicAtt - (magicAtt * hero.magicDef/100);
-
-        if (hero.health < 0)
-            hero.health = 0;
+        double attackScore = magicAtt - (magicAtt * hero.magicDef / 100);
+        if (hero.health - attackScore < MIN_HEALTH) {
+            hero.health = MIN_HEALTH;
+        } else {
+            hero.health -= attackScore;
+        }
     }
 
-    @Override
-    public void physicalAttack(Hero hero) {
-        if (hero.health > 100)
-            hero.health = 100;
 
-        hero.health -= physAtt - (physAtt * (hero.physDef/100));
-
-        if (hero.health < 0)
-            hero.health = 0;
-    }
-
-    public String toString(){
+    public String toString() {
         return "Magician{health=" + health + "}";
     }
 }
