@@ -7,13 +7,14 @@ public class MusicBand {
 
     private String name;
     private int year;
+    List<MusicBand> list = new ArrayList<>();
+
 
     public MusicBand(String name, int year){
         this.name = name;
         this.year = year;
     }
 
-    List<MusicBand> list = new ArrayList<>();
 
 
 

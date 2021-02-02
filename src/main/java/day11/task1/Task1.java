@@ -14,8 +14,8 @@ public class Task1 {
         courier2.doWork();
         picker2.doWork();
 
-        System.out.println(picker.toString());
-        System.out.println(courier.toString());
+        System.out.println(picker);
+        System.out.println(courier);
     }
 
     public static void businessProcess(Worker worker){
