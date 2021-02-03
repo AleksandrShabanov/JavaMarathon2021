@@ -13,7 +13,6 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
         this.text = text;
-
         date = new Date();
     }
 

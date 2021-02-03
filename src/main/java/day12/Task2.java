@@ -1,4 +1,5 @@
 package day12;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +10,11 @@ public class Task2 {
 
         List<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i <=30; i++){
+        for (int i = 0; i <= 350; i++) {
+            if (i > 30 && i < 300)
+                continue;
             if (i % 2 == 0)
                 list.add(i);
-        }
-
-        for (int j = 300; j <= 350; j++){
-            if (j % 2 == 0)
-                list.add(j);
         }
 
         for (int i : list)
