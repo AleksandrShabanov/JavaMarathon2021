@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Task3 {
     public static void main(String[] args) {
+
         File file = new File("people");
 
         try {
@@ -23,12 +24,12 @@ public class Task3 {
 
         while (scanner.hasNextLine()) {
             String[] people = scanner.nextLine().split(" ");
-            Person person = new Person(people[0], Integer.parseInt(people[1]));
-            list.add(person);
 
             if (Integer.parseInt(people[1]) < 0) {
                 throw new IllegalStateException("Некорректный входной файл");
             }
+
+            list.add(new Person(people[0], Integer.parseInt(people[1])));
         }
         scanner.close();
         return list;

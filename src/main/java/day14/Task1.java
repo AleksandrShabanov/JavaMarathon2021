@@ -1,9 +1,6 @@
 package day14;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Task1 {
@@ -14,30 +11,22 @@ public class Task1 {
             printSumDigits(file);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
-        } catch (IOException io) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Неккоректный входной файл");
         }
     }
 
-    public static void printSumDigits(File file) throws IOException {
+    public static void printSumDigits(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
-        String line = scanner.nextLine();
-        List<String> string = Arrays.asList(line.split(" "));
-        List<Integer> listNumbers = new ArrayList<>();
-
-        scanner.close();
-        int counter = 0;
-        for (String numbers : string) {
-            listNumbers.add(Integer.parseInt(numbers));
-            counter++;
-        }
-
-        if (counter < 10 || counter > 10) throw new IOException();
         int sum = 0;
-        for (int i : listNumbers) {
-            sum += i;
-        }
+        String line = scanner.nextLine();
+        String[] numbers = line.split(" ");
 
+        if (numbers.length != 10) throw new IllegalArgumentException();
+
+        for (int i = 0; i < numbers.length; i++){
+            sum += Integer.parseInt(numbers[i]);
+        }
         System.out.println(sum);
     }
 }

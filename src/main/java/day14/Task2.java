@@ -11,6 +11,8 @@ public class Task2 {
             System.out.println(parseFileToStringList(file));
         } catch (IOException e) {
             System.out.println("Файл не найден");
+        } catch (IllegalStateException e){
+            System.out.println("Некорректный входной файл");
         }
     }
 
@@ -19,17 +21,17 @@ public class Task2 {
         List<String> list = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
-            String[] people = scanner.nextLine().split(" ");
+            String line = scanner.nextLine();
 
-            for (String str : people){
-                list.add(str);
-            }
-            
+            list.add(line);
+            String[] people = line.split(" ");
+
             if (Integer.parseInt(people[1]) < 0) {
-                throw new IllegalStateException("Некорректный входной файл");
+                throw new IllegalStateException();
             }
         }
         scanner.close();
+
         return list;
     }
 }
