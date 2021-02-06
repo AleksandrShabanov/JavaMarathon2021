@@ -25,9 +25,11 @@ public class Task1 {
                 String line = scanner.nextLine();
                 String[] shoes = line.split(";");
 
-                if (Integer.parseInt(shoes[2]) == 0) {
-                    pw.println(Arrays.toString(shoes));
-                }
+                    if (Integer.parseInt(shoes[2]) == 0) {
+                        pw.println(Arrays.toString(shoes).replace("[","").replace("]",""));
+                        // Поправил. Теперь без скобок
+                    }
+
             }
             pw.close();
 
